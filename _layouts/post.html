@@ -1,0 +1,28 @@
+{% include header.html %}
+
+<div class="articles">
+   
+	<div class="article_link">
+    	<div class="date"> {{ page.date | date: "%d %b" }} </div>
+    	<div class="postcontent">
+    		<h3> {{ page.title }} </h3>
+			<ul>
+				{% if page.comments %}
+				<li> <a href="{{ url }}#disqus_thread">Comments</a> </li>
+				{% endif %}
+				<li class="last"> {% for tag in page.tags %}{% if forloop.length != forloop.index %}{{ tag }}, {% else %}{{ tag }}{% endif %}{% endfor %}
+				</li>
+			</ul>
+			<div class="excerpt">
+				{{ content }}
+			</div> 
+			
+			{% if page.comments %}
+    			{% include disqus.html %}
+    		{% endif %}
+    	</div>
+	</div>
+	
+</div>
+
+{% include footer.html %}
