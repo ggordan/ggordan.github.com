@@ -14,8 +14,8 @@ I considered writing a brief guide on setting up a Jekyll powered site, and host
 
 h1. Useful links
 
-* ["Getting started with Jekyll (Install)":///github.com/mojombo/jekyll/wiki/Install]
-* ["Jekyll Bootstrap":///jekyllbootstrap.com]
-* ["Textile Reference Manual for RedCloth 4":///redcloth.org/textile/writing-paragraph-text/]
-* ["Liquid for Designers":///github.com/Shopify/liquid/wiki/Liquid-for-Designers]
-* ["Using Jekyll with GitHub:pages":///help.github.com/articles/using-jekyll-with-pages]
+* ["Getting started with Jekyll (Install)":http://github.com/mojombo/jekyll/wiki/Install]
+* ["Jekyll Bootstrap":http://jekyllbootstrap.com]
+* ["Textile Reference Manual for RedCloth 4":http://redcloth.org/textile/writing-paragraph-text/]
+* ["Liquid for Designers":http://github.com/Shopify/liquid/wiki/Liquid-for-Designers]
+* ["Using Jekyll with GitHub:pages":http://help.github.com/articles/using-jekyll-with-pages]
