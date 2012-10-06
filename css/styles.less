@@ -7,6 +7,7 @@ Main: #ca314a
 
 */
 
+strong {font-weight: bold;} 
 a { text-decoration: none; color: #333 }
 a:hover { text-decoration: underline }
 
@@ -23,43 +24,44 @@ body {
 /* LOGO */
 
 div.logo {
-	-webkit-animation-duration: 5s;
-	-webkit-animation-name: ease;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-direction: alternate;
-	-moz-animation-duration: 5s;
-	-moz-animation-name: ease;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-direction: alternate;
+	.easeinoutlogo(3s);
 	position: absolute;
 	right:-52px;
-	top:20px;
+	top:25px;
 	height: 100px;
 	width: 100px;
-	border-radius: 50%;
+	.border-radius(50%);
 	background: #ca314a;
-/* 	border: 10px solid #FFF; */
-	box-shadow: 0px 0px 0px 11px #fff, inset 0px 3px 3px #7e2433;
-	-moz-box-shadow: 0px 3px 0px #7e2433;
+	.box-shadow(~"0px 0px 0px 11px #fff, inset 0px 3px 3px #7e2433");
+
 	z-index: 2;
 	overflow:hidden;
 }
 
-/*
-div.logo:before {
-	content: "";
-	display: block;
-	position: absolute;
-	left:31px;
-	width: 0;
-	top:-16px;
-	z-index: 1;
-	height: 0;
-	border-left: 20px solid transparent;
-	border-bottom: 10px solid #efefef;
-	border-right: 20px solid transparent;
+.easeinoutlogo(@time) {
+	-webkit-animation-duration: @time;
+	-webkit-animation-name: ease;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-moz-animation-duration: @time;
+	-moz-animation-name: ease;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: alternate;
 }
-*/
+
+.box-shadow(@args) {
+	box-shadow: @args;
+	-moz-box-shadow: @args;
+	-webkit-box-shadow: @args;
+	-o-box-shadow: @args;	
+}
+
+.border-radius(@args) {
+	border-radius:@args;
+	-webkit-border-radius:@args;
+	-moz-border-radius:@args;
+	-o-border-radius:@args;
+}
 
 /* INITIALS */
 
@@ -152,7 +154,7 @@ li a {
 	text-decoration: none;
 	height: 40px;
 	width:100%;
-	line-height: 40px;
+/* 	line-height: 40px; */
 	color: #828282;
 	font-size: 14px;
 }
@@ -169,7 +171,7 @@ a.yc { color:#ff6600; }
 	position: absolute;
 	left:452px;
 	width:700px;
-	margin-top:14%;
+	margin-top:100px;
 	line-height: 1.7em;
 	font-size: 14px;
 }
@@ -228,12 +230,20 @@ a.yc { color:#ff6600; }
 	line-height: 2em;
 }
 
+.excerpt ul {
+	margin:10px 0;
+	background: #fff;
+	padding: 10px;
+}
+
 .excerpt ul li {
 	display: block;
+	list-style-type: decimal;
+	list-style-position: inside;
 }
 
 .excerpt ul li::before {
-	content: "-> "
+	content: "- "
 }
 
 .excerpt h1 {
@@ -242,7 +252,7 @@ a.yc { color:#ff6600; }
 }
 
 .highlight {
-	margin-top:10% 0;
+	margin:15px 0;
 }
 
 /* ANIMATIONS */
@@ -284,4 +294,18 @@ em {
 
 .getintouch a:hover {
 	text-decoration: none;
+}
+
+p.tldr {
+	border:2px solid #ca314a;
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #fff;	
+}
+
+p.img { text-align: center;} 
+
+img {
+	border:1px solid #b3b3b3;
+	margin:10px;
 }
