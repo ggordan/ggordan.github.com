@@ -6,7 +6,7 @@ permalink: post/blogging-on-github.html
 tags: [blogging, hello]
 ---
 
-This blog is hosted on GitHub:pages which are powered by "Jekyll"://github.com/mojombo/jekyll, "_a simple, blog aware, static site generator_" created by "mojombo"://github.com/mojombo. It is shockingly easy to set up and get writing. 
+This blog is hosted on GitHub:pages which are powered by "Jekyll":http://github.com/mojombo/jekyll, "_a simple, blog aware, static site generator_" created by "mojombo":http://github.com/mojombo. It is shockingly easy to set up and get writing. 
 Most of my previous attempts to start blogging ended in failure due to the fact that I was never happy with the platform my blog was hosted on. I tried Tumblr, Wordpress etc, but after a while I would just give up. They are all fantastic services, but they were never right for me. I even rolled my own, but the result of that was that I was always fiddling with the code and did very little writing. 
 Now, I don't want to prematurely celebrate success in finding the right blogging platform for me, but for the moment I am extremely happy with my current setup. Of course, this is only my first post but I already enjoy it more than I did with any of the previously aforementioned services.
 
