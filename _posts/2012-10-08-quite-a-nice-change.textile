@@ -1,0 +1,10 @@
+---
+layout: post
+author: Gordan Grasarevic
+title: Quite a nice change
+permalink: post/quite a nice change.html
+tags: [WebPlatform.org]
+---
+
+Lately it seems that whenever I'm browsing through the front page of Hacker News there is going to a story about a tech company being sued by someone. Hell, even if I ignore all of the patent trolls, there are enough stories about tech giants suing each other to keep me busy during my lunch break. Which is why when I opened Hacker News today I was greeted by a pleasant surprise. A group of competing companies have come together to provide a 'comprehensive' resource for all open web technologies in one place, ["WebPlatform.org":http://webplatform.org]. 
+At this moment in time the docs/wiki is somewhat incomplete (it is still in alpha), however anyone can contribute to make it better. Apart from the wiki, there is also a forum/Q&A site, and IRC Chat which you can connect to through the web page, or go directly to #webplatform on irc.freenode.net. WebPlatform is still a new site, but I hope it will gain traction and become the go-to place for web developers seeking to learn new concepts, best-practices etc... I don't say this because it's backed by the elite, I say it in the hope that it will displace a site, whose name shall not be mentioned, which is now probably the go-to place for new developers.
