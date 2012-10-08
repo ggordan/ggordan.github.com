@@ -8,7 +8,7 @@ layout: nil
  <link href="http://ggordan.com/atom.xml" rel="self"/>
  <link href="http://ggordan.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://tom.preston-werner.com/</id>
+ <id>http://ggordan.com</id>
  <author>
    <name>Gordan Grasarevic</name>
    <email>me@ggordan.com</email>
