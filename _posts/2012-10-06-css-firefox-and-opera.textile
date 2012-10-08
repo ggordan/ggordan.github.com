@@ -5,8 +5,10 @@ title: CSS issue with Firefox and Opera
 permalink: post/css-firefox-and-opera.html
 tags: [Opera, Firefox, CSS3]
 ---
- 
-<p class="tldr"> *tl;dr*: In this post I explain two issues I ran into when creating the "logo" for this site. One occurs when using the *border*, *box-shadow*, and *border-radius* properties on one element, and the other appears on Opera when attempting to rotate an element 180degrees that has a position of either absolute, or fixed.
+
+* <strong>Update</strong> - The Opera team has responded very quickly to fix the bug regarding positioned elements with a rotate transformation, on the next iteration of their browser, ["12.10":http://www.opera.com/browser/next/].
+
+<p class="tldr"> *tl;dr*: In this post I explain two issues I ran into when creating the "logo" for this site. One occurs on Firefox and Opera 12.02 when using the *border*, *box-shadow*, and *border-radius* properties on one element, and the other appears on Opera when attempting to rotate an element 180degrees that has a position of either absolute, or fixed.
 </p>
 
 * Opera 12.02
