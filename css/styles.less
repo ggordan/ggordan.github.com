@@ -1,4 +1,6 @@
-html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+
+/*minmax-width:960px*/
 
 /* 
 
@@ -24,7 +26,6 @@ body {
 /* LOGO */
 
 div.logo {
-	.easeinoutlogo(3s);
 	position: absolute;
 	right:-52px;
 	top:25px;
@@ -32,23 +33,10 @@ div.logo {
 	width: 100px;
 	.border-radius(50%);
 	background: #ca314a;
-	.box-shadow(~"0px 0px 0px 11px #fff, inset 0px 3px 3px #7e2433");
-
+	.box-shadow(~"0px 0px 0px 11px #fff");
 	z-index: 2;
 	overflow:hidden;
 }
-
-.easeinoutlogo(@time) {
-	-webkit-animation-duration: @time;
-	-webkit-animation-name: ease;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-direction: alternate;
-	-moz-animation-duration: @time;
-	-moz-animation-name: ease;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-direction: alternate;
-}
-
 .box-shadow(@args) {
 	box-shadow: @args;
 	-moz-box-shadow: @args;
@@ -94,12 +82,11 @@ h1 {
 /* LEFT COLUMN */
 
 .leftcol {
-	width:350px;
-	min-height: 100%;
-	background: url(/images/bg.png) repeat #212121;
-	border-right:2px solid #121212;
+	width:30%;
+	height: 100%;
+	background:#333333;
 	position: fixed;
-	box-shadow:inset -3px 0px 6px #121212;
+	float:left;
 }
 
 .leftcol h1 a {
@@ -111,6 +98,15 @@ h1 {
 	padding:20px;
 }
 
+.image {
+  padding: 20px;
+}
+.image img {
+  margin:0;
+  height:150px;
+  border:10px solid #f8f8f8;
+}
+
 .fullname {
 	margin-top:10px;
 	text-transform: uppercase;
@@ -120,13 +116,12 @@ h1 {
 }
 
 .about {
-	margin-top:50px;
+	margin-top:20px;
 	line-height: 1.5em;
 	font-size: 13px;
 	padding: 10px 20px 10px 20px;
 	margin-bottom: 40px;
-	color:#727272;
-	text-shadow:0px 1px 0px #000;
+	color:#aeaeae;
 }
 
 ul.sociallinks {
@@ -135,10 +130,9 @@ ul.sociallinks {
 .sociallinks li {
 	width:100%;
 	height:40px;
-	opacity: .5;
 	text-indent: 10px;
 	line-height:40px;
-	background: #121212;
+	background: #212121;
 	-webkit-transition:background 1s;
 	-moz-transition:background 1s;
 	-o-transition:background 1s;
@@ -154,7 +148,6 @@ li a {
 	text-decoration: none;
 	height: 40px;
 	width:100%;
-/* 	line-height: 40px; */
 	color: #828282;
 	font-size: 14px;
 }
@@ -168,9 +161,10 @@ a.yc { color:#ff6600; }
 /* ARTICLES */
 
 .articles {
-	position: absolute;
-	left:452px;
-	width:700px;
+	width:70%;
+	position: relative;
+	margin-left:30%;
+	float:left;
 	margin-top:100px;
 	line-height: 1.7em;
 	font-size: 14px;
@@ -180,22 +174,24 @@ a.yc { color:#ff6600; }
 	overflow: hidden;
 	padding: 5%;
 	margin-bottom: 5%;
-	border-bottom: 1px dotted #e2e2e2;
 }
 
 .date {
 	float: left;
-	width: 105px;
+  	position:relative;
+  	z-index:-11;
+	width: 10%;
 	font-weight: bold;
 }
 
 .postcontent {
 	float: left;
-	width: 595px;
+	width: 90%;
 }
 
 .postcontent h3 {
-	font-size: 1.5em;
+	font-size: 2em;
+  	padding-bottom:8px;
 }
 
 .postcontent h3 a, .excerpt a {
@@ -218,16 +214,14 @@ a.yc { color:#ff6600; }
 }
 
 .excerpt {
-	margin-top:4%;
-}
-
-.excerpt {
-	font-size: 13px;
+  	margin-top:4%;
+	font-size: 1.2em;
 }
 
 .excerpt p {
+  	font-family:'Antic Slab', serif;
 	margin-bottom: 5px;
-	line-height: 2em;
+	line-height: 2.4em;
 }
 
 .excerpt ul {

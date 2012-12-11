@@ -1,0 +1,49 @@
+---
+layout: post
+author: Gordan Grasarevic
+title: Localising Taxonomy Terms in Views (Drupal 7)
+permalink: post/time-management.html
+tags: [Drupal 7, views, taxonomy, localisation]
+---
+
+Recently I was working on a multilingual Drupal 7 website which stored categories in taxonomies, and required the use of the "views":http://drupal.org/project/views modules to display the items for those categories. This was all great, and the default taxonomy term language was displaying fine, however when switching languages to see its localised content, it would still display the original.
+
+After scouring the web for a useful solution or a module, I found a few interesting solutions, however none of them seemed to work for me. So I decided to roll my own fix.
+
+I wrote a (very) simple module (taxonomylocalize) that implements two hooks, the views hook_views_api(), and the hook_views_pre_render(). 
+
+The first hook simply tells views that this module is using its API by specifying its version; in this case 3;
+The second hook catches the view before it is rendered and sets the i18n_string_translate_langcode() to the language the site is currently being displayed in. It then iterates through all the terms, gets its localised version and sets it to the variable $localized_term. *If a localised version doesn't exist, it will fall back to the source language*.
+From there, you can do whatever you wish with the term. In this example, I set the name of the term to it's localised version.
+
+{% highlight php5 linenos %}
+/*
+ * Implementation hook_views_api()
+ */
+function taxonomylocalize_views_api() {
+	return array(
+			'api' => 3,
+	);
+}
+
+/*
+ * Implementation of hook_views_pre_render(&$view)
+ */
+function taxonomylocalize_views_pre_render(&$view) {
+	global $language;
+
+	foreach($view->result as $delta => $term ){
+		if(isset($term->tid)) {
+
+			i18n_string_translate_langcode( $language->language );
+			$localized_term = i18n_taxonomy_localize_terms( taxonomy_term_load( $term->tid ));
+			$term->tid = $localized_term->tid;
+			$term->taxonomy_term_data_name = $localized_term->name;
+		}
+	}
+}
+{% endhighlight %}
+
+For this to work, the "Internationalization":http://drupal.org/project/i18n module, and the views module are required. Also, it's worth noting that the will attempt to localize all views, so it might be worth checking that the $views->base_table is set to 'taxonomy_term_data'.
+
+* Tested on *Views 7.x-3.5*, and *Internationalization 7.x-1.7*
