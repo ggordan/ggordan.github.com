@@ -4,6 +4,7 @@ author: Gordan Grasarevic
 title: Localising Taxonomy Terms in Views (Drupal 7)
 permalink: post/localising-taxonomy-terms-in-views.html
 tags: [Drupal 7, views, taxonomy, localisation]
+comments: true
 ---
 
 Recently I was working on a multilingual Drupal 7 website which stored categories in taxonomies, and required the use of the "views":http://drupal.org/project/views modules to display the items for those categories. This was all great, and the default taxonomy term language was displaying fine, however when switching languages to see its localised content, it would still display the original.
