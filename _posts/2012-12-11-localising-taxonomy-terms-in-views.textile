@@ -1,9 +1,9 @@
 ---
 layout: post
 author: Gordan Grasarevic
-title: Localising Taxonomy Terms in Views (Drupal 7)
+title: Localizing Taxonomy Terms in Views (Drupal 7)
 permalink: post/localising-taxonomy-terms-in-views.html
-tags: [Drupal 7, views, taxonomy, localisation]
+tags: [Drupal 7, views, taxonomy, localization]
 comments: true
 ---
 
