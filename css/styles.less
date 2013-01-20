@@ -21,49 +21,10 @@ body {
 	background: #f8f8f8;
 }
 
-/* LOGO */
+.details {
+    background: #121212;
+    overflow: hidden;
 
-div.logo {
-	position: absolute;
-	right:-52px;
-	top:25px;
-	height: 100px;
-	width: 100px;
-	.border-radius(50%);
-	background: #ca314a;
-	.box-shadow(~"0px 0px 0px 11px #fff");
-	z-index: 2;
-	overflow:hidden;
-}
-.box-shadow(@args) {
-	box-shadow: @args;
-	-moz-box-shadow: @args;
-	-webkit-box-shadow: @args;
-	-o-box-shadow: @args;	
-}
-
-.border-radius(@args) {
-	border-radius:@args;
-	-webkit-border-radius:@args;
-	-moz-border-radius:@args;
-	-o-border-radius:@args;
-}
-
-/* INITIALS */
-
-.initials {
-	font-size: 3em;
-	color: #f8f8f8;
-}
-
-.initial1 {
-	-webkit-transform:rotate(-180deg);
-	-moz-transform:rotate(-180deg);
-	-o-transform:rotate(-179deg);
-	transform:rotate(-180deg);
-	position: absolute;
-	top:27px;
-	right:20px;
 }
 
 .initial2 {
@@ -81,7 +42,10 @@ h1 {
 
 .bio {
 	padding:20px;
+    float:left;
 }
+
+.bio h1 a {color:#ccc; text-shadow: none}
 
 .image {
   padding: 20px;
