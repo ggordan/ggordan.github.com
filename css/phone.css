@@ -1,5 +1,4 @@
 body {
-	background: red;
 	width:100%;
 }
 
@@ -11,15 +10,31 @@ body {
 
 }
 
+div.details {
+	position: static;
+	float:none;
+	padding:0;
+	width:100%;
+	background: #e1e1e1;
+}
+
 div.articles {
 	width:100%;
-  margin:0;
+  margin:0 0 50px;
   position:static;
   float:left;
 }
 
-div.logo {
-	display:none;
+.postcontent h3 {
+	margin-bottom: 2em;
+}
+
+.bio, .aboutme, .socialwrapper {
+	padding:0 20px;
+}
+
+.socialwrapper li {
+	text-align: center
 }
 
 div.article_link, div.excerpt, div.date, div.postcontent {
@@ -38,4 +53,37 @@ div.date span {
 
 div.date span:before {
 	content: 'Posted on: '
+}
+
+footer {
+	position: fixed;
+	z-index: 999;
+	bottom:0;
+	left: 0;
+	width:100%;
+	background: #212121;
+	padding:0;
+	display: inline-block;
+	overflow: hidden;
+}
+
+footer .mobile {
+	width:33.33%;
+	float:left;
+	height:50px;
+	text-align: center;
+	display:block;
+	font-size:1em;
+}
+
+footer .mobile a {
+	display: block;
+	color:#f8f8f8;
+	font-weight: 800;
+	height:50px;
+	line-height: 50px;
+}
+
+footer .mobile a:hover {
+	text-decoration: none;
 }
