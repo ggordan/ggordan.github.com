@@ -1,0 +1,36 @@
+---
+layout: post
+author: Gordan Grasarevic
+title: OpenCV bindings for Go
+permalink: post/golang-opencv.html
+tags: [opencv, golang]
+---
+
+I was working with the ["OpenCV bindings for Go":https://code.google.com/p/go-opencv/], and came across an the following issue from the get go:
+
+{% highlight bash %}
+1: error: 'CV_INPAINT_TELEA' undeclared (first use in this function)
+1: note: each undeclared identifier is reported only once for each function it appears in
+1: error: 'CV_INPAINT_NS' undeclared (first use in this function)
+1: error: 'cvInpaint' undeclared (first use in this function)
+{% endhighlight %}
+
+After some poking around, I found that the reason for this is that the directory structure has changed for OpenCV 2.4. The solution to the problem was fairly simple. Open up terminal, and navigate to
+
+{% highlight bash %}
+cd /usr/share/go/src/pkg/code.google.com/p/go-opencv/trunk/opencv
+{% endhighlight %}
+
+This directory may differ for you, and in that case, just check your GOPATH.
+
+Open the file opencv.h and simply comment out/delete the conditional statement at the top of the page so that you're left with only
+
+{% highlight cpp linenos %}
+//  OpenCV 2.4.x
+#   include <opencv/cv.h>
+#   include <opencv/highgui.h>
+#   include <opencv2/photo/photo_c.h>
+#   include <opencv2/imgproc/imgproc_c.h>
+{% endhighlight %}
+
+Save the file, and that should be it.
