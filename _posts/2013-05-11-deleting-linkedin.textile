@@ -1,0 +1,11 @@
+---
+layout: post
+author: Gordan Grasarevic
+title: Deleting LinkedIn
+permalink: post/deleting-linkedin.html
+tags: [linkedin]
+---
+
+It's been around a week since I deleted my LinkedIn account, and the only difference I have noticed is that my inbox is cleaner.
+
+LinkedIn is a strange place. I don't think I've ever used it the way it meant to be used, and I've still not figured out what its value is. I guess networking, but that has never been a strong point of mine. I don't think it's for me, or developers in general, who are according to stereotypes are probably not very good at getting 'connections' or 'endorsements'. So instead of sitting idly by as a steady stream of emails from LinkedIn fills my inbox (filtered, but annoying nonetheless), I decided to delete it. And I'm quite happy with the results. One less useless social media account that I need to check up on from time to time.

@@ -2,17 +2,63 @@
 layout: home
 title: Home
 ---
-  
-<div class="articles">
-	{% for post in site.posts %}  
-	<div class="article_link">
-    	<div class="date"> <span>{{ post.date | date: "%d %b" }}</span> </div>
-    	<div class="postcontent">
-    		<h3> <a href="{{post.url}}">{{ post.title }}</a> </h3>
-			<div class="excerpt">
-				{{ post.content }}
-			</div> 
-    	</div>
-	</div>
-	{% endfor %}
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="jumbotron masthead">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <h1>ggordan</h1>
+                <h2> Gordan Grasarevic </h2>
+                <p> Howdy, I'm a web developer from London, UK. My languages of choice are Ruby, Javascript, and I am currently learning Go and Haskell. I write code on GitHub, infrequently blog, and share my musical tastes on Last.fm. Feel free to drop me a line at <a href="mailto:me@ggordan.com?subject=Hello">me@ggordan.com</a>. </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron projects ">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span8">
+                <div class="page-header">
+                    <h1 class="light">Posts</h1>
+                </div>
+                {% for post in site.posts %}
+                <div class="span12">
+                    {% if forloop.index0 < 3 %}
+                    <h3><a title="{{post.title}}" href="{{post.url}}">{{post.title}}</a></h3>
+                    <p class="date"> {{post.date | date: "%B %Y" }} </p>
+                    <div class="post-content">{{ post.content }}</div>
+                    <hr />
+                    {% else %}
+                    <h3 style="font-weight: normal"><a title="{{post.title}}" href="{{post.url}}">{{post.title}}</a> <span class="date"> posted on {{post.date | date: "%B %Y" }}</span> </h3>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <hr />
+            </div>
+            <div class="span4">
+                <div class="page-header">
+                    <h1 class="light">Projects</h1>
+                </div>
+                <div class="span12">
+                    <h3>MapQuest</h3>
+                    <p>A Ruby gem to communiate with the <a href="http://www.mapquestapi.com/">MapQuest web services</a>. It currently support geocoding, and directions. </p>
+                    <p><a href="//github.com/ggordan/mapquest" class="btn">Details</a></p>
+                    <hr />
+                </div>
+                <div class="span12">
+                    <h3>workspacer</h3>
+                    <p>workspacer is an app written in node.js that helps you manage your local workflow. </p>
+                    <p><a href="//github.com/ggordan/workspacer" class="btn">Details</a></p>
+                    <hr />
+                </div>
+                <div class="span12 github">
+                    <h3>On GitHub</h3>
+                    <p> You can see more examples of my work by visiting my GitHub profile. </p>
+                    <p><a href="//github.com/ggordan" class="btn">Visit</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
