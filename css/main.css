@@ -45,6 +45,16 @@ h3 code {
     background: rgb(67, 167, 199);
 }
 
+footer .container {
+  border-top: 1px solid rgb(67, 167, 199);
+  padding:15px 0;
+}
+
+footer .container a {
+  color: rgb(28, 123, 199);
+  font-weight: 400;
+}
+
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 
