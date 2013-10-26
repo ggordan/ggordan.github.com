@@ -1,0 +1,17 @@
+---
+layout: post
+author: Gordan Grasarevic
+title: Convert .mov to .avi using ffmpeg
+permalink: post/css-firefox-and-opera.html
+tags: [ffmpeg, ubuntu, mov, avi]
+---
+
+When I was using a Macbook as my primary machine, I had obsessive need to organise all my media (music, TV Shows, and movies) into iTunes. This was tricky mostly with video files as iTunes requires you to have mp4/mov files, so I went through the long processes of converting all of my videos to that format using "iFlicks":http://www.iflicksapp.com/. But when I switched to Ubuntu the vast majority of my videos had no audio, so it was "ffmpeg":http://www.ffmpeg.org/ to the rescue.
+
+The following command will do the trick for _most_ videos:
+
+{% highlight bash linenos %}
+ffmpeg -i movie.mov -acodec copy -vcodec copy movie.avi
+{% endhighlight %}
+
+I recommend compiling ffmpeg from source as I ran into various issues while using the version available through apt, possibly due to the fact that Ubuntu no longer uses the official ffmpeg, but rather a fork.
