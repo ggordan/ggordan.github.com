@@ -6,22 +6,26 @@
 
 body {
     position: relative;
-    font-family: 'Roboto';
-    font-weight: lighter;
+    font-family: 'Open Sans';
     line-height: 1.5em;
 }
 
-a { color:rgb(67, 167, 199); }
-h1.light { color: rgb(67, 167, 199); font-weight: 200; }
+a {
+    color: rgb(67, 167, 199);
+}
+
+.light { color: rgb(67, 167, 199); font-weight: 200; }
 
 .post-header {
-    margin-bottom:20px;
-    font-size:7em;
+    margin:20px 0;
+    font-size:3em;
     line-height: normal;
 }
 
 #disqus_thread {
     margin-top:50px;
+    padding-top: 50px;
+    border-top: 30px solid rgb(67, 167, 199);
 }
 
 /* Code in headings */

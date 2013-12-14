@@ -1,7 +1,7 @@
 .highlight, .highlight pre  {
 	font: 'Courier New';
 	font-size: 14px;
-    background: #333;
+    background: rgb(17, 22, 26);
     overflow: hidden;
 	line-height: 1.8em;
     max-height: 700px;
@@ -23,6 +23,7 @@
 	text-shadow: none;
     background: #212121;
     padding:10px;
+    display: none;
 }
 
 .highlight .c { color: #66a04f; font-style: italic } /* Comment */
