@@ -1,2 +1,5 @@
-markdown: rdiscount
+name: "Data Structures & Algorithms"
+markdown: redcarpet
 pygments: true
+gems: ['sass']
+test: ['lib/foundation/js/foundation.min.js', 'js/*', ]

@@ -1,0 +1,9 @@
+---
+title: main.scss
+---
+
+@import 'overrides';
+@import 'fontello';
+@import '../components/foundation/scss/normalize';
+@import '../components/foundation/scss/foundation';
+@import 'globals';
