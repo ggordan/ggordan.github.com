@@ -2,6 +2,23 @@ body {
 }
 
 nav.navigation {
+  background: none;
+  .top-bar-section {
+    ul.right {
+      background: none;
+      li a {
+        background: none;
+        display: inline;
+        font-size: emCalc(15px);
+        @include transition(all 2s);
+        color: $top-bar-link-color;
+        &:hover {
+          background: none;
+          color: lighten($top-bar-link-color, 20%);
+        }
+      }
+    }
+  }
 }
 
 .masthead {
@@ -33,5 +50,16 @@ nav.navigation {
       border: 5px solid #fff;
     }
   }
+}
 
+.writing.columns {
+  ul {
+    margin: 0;
+    li {
+      list-style-type: none;
+      font-size: emCalc(20px);
+      padding: 10px 0;
+      border-bottom: 1px solid #323232;
+    }
+  }
 }

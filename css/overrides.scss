@@ -1,6 +1,13 @@
 // Custom Variables
 $masthead-h1-color: #363D42;
 
+$top-bar-link-color: #3498DB;
+
+$github-color: #DFC6B1;
+$spotify-color: #9AC93D;
+$lastfm-color: #EA2A18;
+$facebook-color: #3B5898;
+
 //
 // Foundation Variables
 //
@@ -51,6 +58,12 @@ $em-base: 16px !default;
 
 @function emCalc($pxWidth) {
   @return $pxWidth / $em-base * 1em;
+}
+
+@mixin transition($transition) {
+    -moz-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
 }
 
 // Maybe you want to create rems with pixels

@@ -5,33 +5,30 @@ title: Home
 
 <div class="row masthead">
   <div class="large-12 small-12 columns">
-    <h1> Gordan Grasarevic </h1>
+    <h1> Gordan Grašarević</h1>
     <h2> (ggordan) </h2>
-    <p class="bio"> Hey there, __________. I am a developer from London, UK, currently working at Liveminds. My languages of choice are Javascript and Ruby. I sporadically write here, frequently listen to music on Spotify, and consistently code on GitHub. </p>
+    <p class="bio"> Hey there, __________, thanks for visiting. I am a developer from London, UK, currently working at Liveminds. My languages of choice are Javascript and Ruby. I sporadically write here, frequently listen to music on Spotify, and consistently code on GitHub. Feel free to get in touch with me using any of the social tools below, or just good old fashioned <a href="mailto:me@ggordan.com?subject?HEY!">email</a>. </p>
     <div class="social">
       <a href=""><span class="icon-github-circled"></span></a>
+      <a href="#"><span class="icon-spotify-circled"></span></a>
       <a href="#"><span class="icon-lastfm-circled"></span></a>
       <a href="#"><span class="icon-twitter-circled"></span></a>
       <a href="#"><span class="icon-facebook-circled"></span></a>
-      <a href="#"><span class="icon-gplus-circled"></span></a>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="large-8 small-12 columns">
+  <div class="large-8 small-12 columns writing">
     <h3>Writing</h3>
     <ul>
-     {% for post in site.posts %}
-     <li> <a href="{{ post.url }}">{{ post.title }}</a> </li>
-     {% endfor %}
+      {% for post in site.posts %}
+      <li>
+        <p> <a href="{{ post.url }}">{{ post.title }}</a> </p>
+        <p> </p>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
-<!--   <div class="large-4 small-12 columns">
-    <h3>Coding</h3>
-    <ul>
-     {% for post in site.posts %}
-     <li> {{ post.title }} </li>
-     {% endfor %}
-  </div> -->
   <div class="large-4 small-12 columns">
   <h3> Listening </h3>
     <iframe src="https://embed.spotify.com/?uri=spotify:user:ggordan:playlist:4jh14amGkXpHAq5nfN2T1o&theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
