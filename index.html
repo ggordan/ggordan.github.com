@@ -18,20 +18,20 @@ title: Home
   </div>
 </div>
 <div class="row">
-  <div class="large-4 small-12 columns">
+  <div class="large-8 small-12 columns">
     <h3>Writing</h3>
     <ul>
      {% for post in site.posts %}
-     <li> {{ post.title }} </li>
+     <li> <a href="{{ post.url }}">{{ post.title }}</a> </li>
      {% endfor %}
   </div>
-  <div class="large-4 small-12 columns">
+<!--   <div class="large-4 small-12 columns">
     <h3>Coding</h3>
     <ul>
      {% for post in site.posts %}
      <li> {{ post.title }} </li>
      {% endfor %}
-  </div>
+  </div> -->
   <div class="large-4 small-12 columns">
   <h3> Listening </h3>
     <iframe src="https://embed.spotify.com/?uri=spotify:user:ggordan:playlist:4jh14amGkXpHAq5nfN2T1o&theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
