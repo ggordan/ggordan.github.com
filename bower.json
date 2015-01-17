@@ -1,8 +1,0 @@
-{
-  "name": "ggordan.com",
-  "version": "2.0.0",
-  "dependencies": {
-    "foundation": "latest"
-  },
-  "private": true
-}

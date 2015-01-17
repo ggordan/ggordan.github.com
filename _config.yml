@@ -1,5 +1,4 @@
 name: "Data Structures & Algorithms"
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 gems: ['sass']
-test: ['lib/foundation/js/foundation.min.js', 'js/*', ]
