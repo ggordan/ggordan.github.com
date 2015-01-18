@@ -3,34 +3,16 @@ layout: home
 title: Home
 ---
 
-<div class="row masthead">
-  <div class="large-12 small-12 columns">
-    <h1> Gordan Grašarević</h1>
-    <h2> (ggordan) </h2>
-    <p class="bio"> Hey there! I am a developer from London, UK, currently working at <a href="https://swipe.to">Swipe</a>. My languages of choice are Javascript and Go. I sporadically write here, frequently listen to music on Spotify, and consistently code on GitHub. Feel free to get in touch with me using any of the social tools below, or just good old fashioned <a href="mailto:me@ggordan.com?subject?HEY!">email</a>. </p>
-    <div class="social">
-      <a href=""><span class="icon-github-circled"></span></a>
-      <a href="#"><span class="icon-spotify-circled"></span></a>
-      <a href="#"><span class="icon-lastfm-circled"></span></a>
-      <a href="#"><span class="icon-twitter-circled"></span></a>
-      <a href="#"><span class="icon-facebook-circled"></span></a>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="large-8 small-12 columns writing">
-    <h3>Writing</h3>
-    <ul>
-      {% for post in site.posts %}
-      <li>
-        <p> <a href="{{ post.url }}">{{ post.title }}</a> </p>
-        <p> </p>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  <div class="large-4 small-12 columns">
-  <h3> Listening </h3>
-    <iframe src="https://embed.spotify.com/?uri=spotify:user:ggordan:playlist:4jh14amGkXpHAq5nfN2T1o&theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-  </div>
+<h1 class="name"> (ggordan) </h1>
+<p class="bio"> My name is Gordan Grasarevic, I am a developer from London, currently working at <a href="https://swipe.to">Swipe</a>. I My languages of choice are Javascript and Go. I write here, code on GitHub, listen to music on Spotify, and run on Nike+. Feel free to get in touch with me using any of the social tools below, or just good old fashioned <a href="mailto:me@ggordan.com?subject?HEY!">email</a>. </p>
+<div class="writing">
+  <h3>Writing</h3>
+  <ul>
+    {% for post in site.posts %}
+    <li>
+      <h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
+      <p> </p>
+    </li>
+    {% endfor %}
+  </ul>
 </div>

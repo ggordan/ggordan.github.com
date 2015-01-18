@@ -1,3 +1,71 @@
-body {
-	background: red;
+---
+---
+
+@import "./normalize";
+@import "./highlight";
+
+html, body {
+	background: #fff;
+	color: #333;
+	font-size: 14px;
+	font-family: "proxima-nova-alt-condensed";
+	width: 960px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 5em;
+	margin-bottom: 0;
+	color: #333;
+}
+
+a {
+	color: #000;
+}
+
+.center {
+	text-align: center;
+}
+
+h3 {
+	font-size: 3em;
+}
+
+p, li {
+	font-size: 2em;
+	line-height: 1.5em;
+}
+
+.tldr {
+	background: #333;
+	color: #fff;
+	padding: 15px;
+}
+
+ul {
+	padding-left: 25px;
+	li {
+		h5 {
+			margin: 0;
+			font-size: 1.5em;
+			a {
+				color: #333;
+				font-weight: 100;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.writing ul {
+	padding: 0;
+	list-style-type: none;
+	list-style-position: none;
+	font-size: 0.8em;
+	a {
+		text-decoration: underline;
+	}
 }

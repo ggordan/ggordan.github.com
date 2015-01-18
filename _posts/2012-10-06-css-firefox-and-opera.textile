@@ -23,7 +23,7 @@ A process all of us (should) go through when developing a web page is testing it
 
 Anyway, back to business. When 'designing' this site, and I use that term very loosely, I wanted to use no images and rely mostly on CSS3 to achieve the look I wanted. With the exception of the grainy background of the sidebar, I feel like I managed to achieve this. The biggest issue I faced was designing my 'logo'. I should note that this site uses ["LessCSS":http://lesscss.org] which is a dynamic stylesheet language, so if some properties don't make sense, chances are they're a part of LessCSS syntax.
 
-{% highlight css linenos %}
+{% highlight css %}
 div.logo {
 	.easeinoutlogo(3s);
 	position: absolute;
@@ -42,11 +42,11 @@ div.logo {
 
 The code above would render the logo absolutely fine (as seen on the site) on Webkit browsers, but on Firefox and Opera there would be a strange border which is visible against lighter colours, as seen below.
 
-<p class="img"><img src="/images/firefox-shadow.png" /></p>
+<p class="center"><img src="/images/firefox-shadow.png" /></p>
 
 This issue seems to arise when using a combination of *border*, *box-shadow*, and the *border-radius* properties on one element. The solution for this problem was relatively straightforward, and it was to replace the border with another box-shadow like so:
 
-{% highlight css linenos %}
+{% highlight css %}
 .box-shadow(~"0px 0px 0px 11px #fff, inset 0px 3px 3px #7e2433");
 {% endhighlight %}
 

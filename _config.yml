@@ -2,3 +2,6 @@ name: "Data Structures & Algorithms"
 markdown: redcarpet
 highlighter: pygments
 gems: ['sass']
+sass:
+  sass_dir: css
+  style: compressed
