@@ -16,7 +16,7 @@ The first hook simply tells views that this module is using its API by specifyin
 The second hook catches the view before it is rendered and sets the i18n_string_translate_langcode() to the language the site is currently being displayed in. It then iterates through all the terms, gets its localised version and sets it to the variable $localized_term. *If a localised version doesn't exist, it will fall back to the source language*.
 From there, you can do whatever you wish with the term. In this example, I set the name of the term to it's localised version.
 
-{% highlight php5 linenos %}
+{% highlight php5 %}
 <?php
 /*
  * Implementation hook_views_api()
