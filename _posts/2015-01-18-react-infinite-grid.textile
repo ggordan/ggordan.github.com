@@ -6,7 +6,40 @@ permalink: post/react-infinite-grid.html
 tags: [react, grid, infinite]
 ---
 
-<i>react-infinite-grid</i> is a <a href="http://facebook.github.io/react/">React</a> component which renders a grid of React elements. It's different because it only renders the elements that the user can see (and a small buffer) meaning that it is well suited for displaying large amounts of data. The example below has 200,000 entries.
+<i>react-infinite-grid</i> is a <a href="http://facebook.github.io/react/">React</a> component which renders a grid of React elements. It's different because it only renders the elements that the user can see (and a small buffer) meaning that it is well suited for displaying large amounts of data.
 
+The example below has renders a grid with 100,000 entries.
+
+{% highlight js %}
+
+var React = require('react');
+var InfiniteGrid = require('react-infinite-grid');
+
+var Example = React.createClass({
+	render: function() {
+		return(
+			<div className="example">
+				This is {this.props.index}
+			</div>
+		);
+	},
+});
+
+var items = [];
+for (var i = 0; i <= 100000; i++) {
+	items.push(<Example index={i} key={"example-" + i} />);
+}
+
+React.render(<InfiniteGrid wrapperHeight={400} entries={items} />, document.getElementById('grid'));
+
+{% endhighlight %}
 
 <div id="grid"></div>
+
+You can install it using npm
+
+{% highlight bash %}
+npm install react-infinite-grid
+{% endhighlight%}
+
+Contributions welcome on <a href="https://github.com/ggordan/react-infinite-grid">GitHub</a>

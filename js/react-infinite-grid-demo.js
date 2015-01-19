@@ -45,27 +45,26 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var LazyGrid = __webpack_require__(2);
+	var InfiniteGrid = __webpack_require__(2);
 
-	var b = React.createClass({displayName: "b",
-
+	var Example = React.createClass({displayName: "Example",
 		render: function() {
 			return(
-				React.createElement("div", {className: "item"},
-					React.createElement("span", {className:"index"}, this.props.index),
-					React.createElement("img", {src: "http://lorempixum.com/200/200"})
+				React.createElement("div", {className: "example"},
+					"This is ", this.props.index
 				)
 			);
 		},
 	});
 
-	var entries = [];
-	for (var i = 0; i <= 200000; i++) {
-		entries.push(b);
+	var items = [];
+	for (var i = 0; i <= 100000; i++) {
+		items.push(React.createElement(Example, {index: i, key: "example-" + i}));
 	}
 
+	React.render(React.createElement(InfiniteGrid, {wrapperHeight: 400, entries: items}), document.getElementById('grid'));
 
-	React.render(React.createElement(LazyGrid, {entries: entries, width: 250, height: 250}), document.getElementById('grid'));
+
 
 /***/ },
 /* 1 */
@@ -87,12 +86,13 @@
 	        entries: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
 	        height: React.PropTypes.number,
 	        width: React.PropTypes.number,
-	        itemPadding: React.PropTypes.number,
+	        padding: React.PropTypes.number,
+	        wrapperHeight: React.PropTypes.number,
 	    },
 
 	    getDefaultProps: function() {
 	        return {
-	            itemPadding: 10,
+	            padding: 10,
 	            entries: [],
 	            height: 250,
 	            width: 250,
@@ -110,7 +110,7 @@
 	            itemDimensions: {
 	                height: this._itemHeight(),
 	                width: this._itemHeight(),
-	                gridWidth: window.innerWidth,
+	                gridWidth: 0,
 	                itemsPerRow: 2,
 	            },
 	        };
@@ -118,11 +118,19 @@
 
 	    // METHODS
 
-	    _style: function() {
+	    _wrapperStyle: function() {
 	        return {
-	            marginTop: this.props.itemPadding,
-	            marginLeft: this.props.itemPadding,
+	            maxHeight: window.innerHeight,
+	            overflowY: 'scroll',
+	            height: this.props.wrapperHeight,
+	        };
+	    },
+
+	    _gridStyle: function() {
+	        return {
 	            position: "relative",
+	            marginTop: this.props.padding,
+	            marginLeft: this.props.padding,
 	            minHeight: this.state.minHeight,
 	        };
 	    },
@@ -136,11 +144,7 @@
 	    },
 
 	    _visibleIndexes: function() {
-
-	        // The number of items per row
 	        var itemsPerRow = this._itemsPerRow();
-
-	        console.log(itemsPerRow);
 
 	        // The number of rows that the user has scrolled past
 	        var scrolledPast = (this._scrolledPastRows() * itemsPerRow);
@@ -153,7 +157,7 @@
 
 	        // the maximum should be the number of items scrolled past, plus some
 	        // buffer
-	        var bufferRows = this._numVisibleRows() + 1;
+	        var bufferRows = this._numVisibleRows() + 2;
 	        var max = scrolledPast + (itemsPerRow * bufferRows);
 
 	        this.setState({
@@ -181,7 +185,6 @@
 	        return scrolledPastHeight;
 	    },
 
-	    // The number of rows that a user has scrolled past
 	    _scrolledPastRows: function() {
 	        var rect = this._getGridRect();
 	        var topScrollOffset = rect.height - rect.bottom;
@@ -189,11 +192,11 @@
 	    },
 
 	    _itemHeight: function() {
-	        return this.props.height + (2 * this.props.itemPadding);
+	        return this.props.height + (2 * this.props.padding);
 	    },
 
 	    _itemWidth: function() {
-	        return this.props.width + (2 * this.props.itemPadding);
+	        return this.props.width + (2 * this.props.padding);
 	    },
 
 	    // The number of visible rows in the grid
@@ -219,6 +222,7 @@
 
 	    _scrollListener: function(event) {
 	        this._visibleIndexes();
+        event.stopPropagation();
 	    },
 
 	    _resizeListener: function(event) {
@@ -230,26 +234,23 @@
 	    render: function() {
 
 	        var entries = [];
-	        var arrEntries = this.props.entries;
-	        if (arrEntries.length > 0) {
-	            for (var i = 0; i <= arrEntries.length; i++) {
+	        if (this.props.entries.length > 0) {
+	            for (var i = this.state.visibleIndexes.lower; i <= this.state.visibleIndexes.higher; i++) {
 	                var entry = this.props.entries[i];
-	                if (i >= this.state.visibleIndexes.lower && i <= this.state.visibleIndexes.higher) {
-	                    if (entry) {
-	                        entries.push(Item({
-	                            dimensions: this.state.itemDimensions,
-	                            index: i,
-	                            key: "item-" + i,
-	                            padding: this.props.itemPadding,
-	                            children: [entry({ key: "child-key-" + i, index: i, })],
-	                        }));
-	                    }
+	                if (entry) {
+	                    entries.push(React.createElement(Item, {
+	                        key: "item-" + i,
+	                        index: i,
+	                        padding: this.props.padding,
+	                        dimensions: this.state.itemDimensions,
+	                    }, entry));
 	                }
 	            }
 	        }
+
 	        return(
-	            React.createElement("div", {ref: "wrapper", className: "infinite-grid-wrapper", onScroll: this._scrollListener, style: { height: 400, overflowY: 'scroll'}},
-	                React.createElement("div", {ref: "grid", className: "infinite-grid", style: this._style()},
+	            React.createElement("div", {ref: "wrapper", className: "infinite-grid-wrapper", onScroll: this._scrollListener, style: this._wrapperStyle()},
+	                React.createElement("div", {ref: "grid", className: "infinite-grid", style: this._gridStyle()},
 	                    entries
 	                )
 	            )
@@ -280,8 +281,6 @@
 		_itemTop: function() {
 			return Math.floor(this.props.index / this.props.dimensions.itemsPerRow) * this.props.dimensions.height;
 		},
-
-		// EVENT HANDLERS
 
 	    render: function() {
 
@@ -8014,7 +8013,7 @@
 
 	"use strict";
 
-	var emptyObject = __webpack_require__(100);
+	var emptyObject = __webpack_require__(98);
 	var invariant = __webpack_require__(37);
 
 	/**
@@ -8173,11 +8172,11 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(98);
+	var CallbackQueue = __webpack_require__(99);
 	var PooledClass = __webpack_require__(38);
 	var ReactCurrentOwner = __webpack_require__(12);
 	var ReactPerf = __webpack_require__(22);
-	var Transaction = __webpack_require__(99);
+	var Transaction = __webpack_require__(100);
 
 	var assign = __webpack_require__(26);
 	var invariant = __webpack_require__(37);
@@ -11250,7 +11249,7 @@
 	"use strict";
 
 	var ReactUpdates = __webpack_require__(41);
-	var Transaction = __webpack_require__(99);
+	var Transaction = __webpack_require__(100);
 
 	var assign = __webpack_require__(26);
 	var emptyFunction = __webpack_require__(87);
@@ -13714,9 +13713,9 @@
 	"use strict";
 
 	var PooledClass = __webpack_require__(38);
-	var CallbackQueue = __webpack_require__(98);
+	var CallbackQueue = __webpack_require__(99);
 	var ReactPutListenerQueue = __webpack_require__(142);
-	var Transaction = __webpack_require__(99);
+	var Transaction = __webpack_require__(100);
 
 	var assign = __webpack_require__(26);
 	var emptyFunction = __webpack_require__(87);
@@ -14878,6 +14877,33 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
+	 * @providesModule emptyObject
+	 */
+
+	"use strict";
+
+	var emptyObject = {};
+
+	if ("production" !== process.env.NODE_ENV) {
+	  Object.freeze(emptyObject);
+	}
+
+	module.exports = emptyObject;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
+
+/***/ },
+/* 99 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
 	 * @providesModule CallbackQueue
 	 */
 
@@ -14970,7 +14996,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
 
 /***/ },
-/* 99 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -15210,33 +15236,6 @@
 	};
 
 	module.exports = Transaction;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
-
-/***/ },
-/* 100 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule emptyObject
-	 */
-
-	"use strict";
-
-	var emptyObject = {};
-
-	if ("production" !== process.env.NODE_ENV) {
-	  Object.freeze(emptyObject);
-	}
-
-	module.exports = emptyObject;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
 
@@ -17220,12 +17219,12 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(98);
+	var CallbackQueue = __webpack_require__(99);
 	var PooledClass = __webpack_require__(38);
 	var ReactBrowserEventEmitter = __webpack_require__(55);
 	var ReactInputSelection = __webpack_require__(115);
 	var ReactPutListenerQueue = __webpack_require__(142);
-	var Transaction = __webpack_require__(99);
+	var Transaction = __webpack_require__(100);
 
 	var assign = __webpack_require__(26);
 

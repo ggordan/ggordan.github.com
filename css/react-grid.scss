@@ -1,3 +1,7 @@
+#grid {
+	margin: 20px auto;
+}
+
 .infinite-grid .item {
 	background: #333;
 	display: flex;
@@ -12,4 +16,9 @@
 	font-size: 2em;
 	z-index: 100;
 	color: #fff;
+}
+
+.infinite-grid .item .example {
+	color: #fff;
+	font-size: 2em;
 }
