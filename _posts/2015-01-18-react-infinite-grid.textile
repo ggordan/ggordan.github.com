@@ -8,7 +8,7 @@ tags: [react, grid, infinite]
 
 <i>react-infinite-grid</i> is a <a href="http://facebook.github.io/react/">React</a> component which renders a grid of React elements. It's different because it only renders the elements that the user can see (and a small buffer) meaning that it is well suited for displaying large amounts of data.
 
-The example below has renders a grid with 100,000 entries.
+The example below renders a grid with 100,000 entries.
 
 {% highlight js %}
 
