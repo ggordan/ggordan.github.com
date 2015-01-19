@@ -1,0 +1,15 @@
+.infinite-grid .item {
+	background: #333;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.infinite-grid .item .index {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 2em;
+	z-index: 100;
+	color: #fff;
+}
