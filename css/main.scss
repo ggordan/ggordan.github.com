@@ -10,7 +10,8 @@ html, body {
 	color: #333;
 	font-size: 14px;
 	font-family: "proxima-nova-alt-condensed";
-	width: 960px;
+	max-width: 1280px;
+	padding: 0 10px;
 	margin: 0 auto;
 }
 
@@ -18,6 +19,27 @@ h1 {
 	font-size: 5em;
 	margin-bottom: 0;
 	color: #333;
+}
+h1 a {
+	color: #4aa3df;
+	text-decoration: none;
+}
+h1 a:hover {
+	text-decoration: underline;
+}
+
+.bio {
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.swipe { color: #f6910a; }
+	.spotify { color: #84bd00; }
+	.facebook { color: #6d84b4; }
+	.twitter { color: #55acee; }
+	.nike { color: #82de00 }
 }
 
 .post-header {
@@ -60,6 +82,11 @@ ul {
 				&:hover {
 					text-decoration: underline;
 				}
+			}
+			span {
+				font-size: 0.6em;
+				font-weight: 100;
+				color: #aaa;
 			}
 		}
 	}
