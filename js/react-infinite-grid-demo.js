@@ -62,9 +62,10 @@
 		items.push(React.createElement(Example, {index: i, key: "example-" + i}));
 	}
 
-	React.render(React.createElement(InfiniteGrid, {wrapperHeight: 400, entries: items}), document.getElementById('grid'));
-
-
+	var grid = document.getElementById('grid');
+	if (grid !== null) {
+		React.render(React.createElement(InfiniteGrid, {wrapperHeight: 400, entries: items}), document.getElementById('grid'));
+	}
 
 /***/ },
 /* 1 */
