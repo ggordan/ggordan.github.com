@@ -1,45 +1,51 @@
 ---
 ---
 
-@import "./normalize";
-@import "./highlight";
-@import "./react-grid";
+@import "normalize";
+@import "highlight";
+@import "react-grid";
 
 html, body {
 	background: #fff;
 	color: #333;
 	font-size: 14px;
 	font-family: "proxima-nova-alt-condensed";
-	max-width: 1280px;
-	padding: 0 10px;
 	margin: 0 auto;
 }
 
-h1 {
-	font-size: 5em;
-	margin-bottom: 0;
-	color: #333;
-}
-h1 a {
-	color: #4aa3df;
-	text-decoration: none;
-}
-h1 a:hover {
-	text-decoration: underline;
+.header {
+	background: #FF5722;
+	margin: 0;
+	font-size: 2em;
+	padding: 3vw 2vw;
+	border-bottom: 0.9em solid #FF8A65;
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
 }
 
-.bio {
-	a {
-		text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}
+.about-me {
+	display: flex;
+	padding: 2vw 2vw;
+	img {
+		flex: 1 1 200px;
+		width: 200px;
 	}
-	.swipe { color: #f6910a; }
-	.spotify { color: #84bd00; }
-	.facebook { color: #6d84b4; }
-	.twitter { color: #55acee; }
-	.nike { color: #82de00 }
+	.bio {
+		font-size: 1.5em;
+		a {
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.swipe { color: #f6910a; }
+		.spotify { color: #84bd00; }
+		.facebook { color: #6d84b4; }
+		.twitter { color: #55acee; }
+		.nike { color: #82de00 }
+	}
 }
 
 .post-header {
