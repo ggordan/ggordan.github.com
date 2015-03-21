@@ -5,47 +5,16 @@
 @import "highlight";
 @import "react-grid";
 
+@import "components/header";
+
 html, body {
 	background: #fff;
 	color: #333;
 	font-size: 14px;
-	font-family: "proxima-nova-alt-condensed";
+	font-family: "proxima-nova-alt";
+	max-width: 1280px;
 	margin: 0 auto;
-}
-
-.header {
-	background: #FF5722;
-	margin: 0;
-	font-size: 2em;
-	padding: 3vw 2vw;
-	border-bottom: 0.9em solid #FF8A65;
-	a {
-		color: #fff;
-		text-decoration: none;
-	}
-}
-
-.about-me {
-	display: flex;
-	padding: 2vw 2vw;
-	img {
-		flex: 1 1 200px;
-		width: 200px;
-	}
-	.bio {
-		font-size: 1.5em;
-		a {
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-		.swipe { color: #f6910a; }
-		.spotify { color: #84bd00; }
-		.facebook { color: #6d84b4; }
-		.twitter { color: #55acee; }
-		.nike { color: #82de00 }
-	}
+	padding: 4vh 4vw;
 }
 
 .post-header {
@@ -62,11 +31,13 @@ a {
 
 h3 {
 	font-size: 3em;
+
 }
 
 p, li {
-	font-size: 2em;
-	line-height: 1.5em;
+	font-weight: 100;
+	font-size: 1.5em;
+	line-height: 2em;
 }
 
 .tldr {
@@ -80,7 +51,8 @@ ul {
 	li {
 		h5 {
 			margin: 0;
-			font-size: 1.5em;
+			font-family: "acta-display";
+			font-size: 2em;
 			a {
 				color: #333;
 				font-weight: 100;
@@ -98,12 +70,11 @@ ul {
 	}
 }
 
+.writing {
+	padding-top: 50px;
+}
 .writing ul {
 	padding: 0;
 	list-style-type: none;
 	list-style-position: none;
-	font-size: 0.8em;
-	a {
-		text-decoration: underline;
-	}
 }
