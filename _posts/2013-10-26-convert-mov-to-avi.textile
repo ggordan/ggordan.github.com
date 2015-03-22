@@ -10,7 +10,7 @@ When I was using a Macbook as my primary machine, I had obsessive need to organi
 
 The following command will do the trick for _most_ videos:
 
-{% highlight bash linenos %}
+{% highlight bash %}
 ffmpeg -i movie.mov -acodec copy -vcodec copy movie.avi
 {% endhighlight %}
 

@@ -8,26 +8,29 @@ comments:
 ---
 
 After a seemingly innocent kernel update to 3.5.0-27 my nvidia drivers went crazy and stopped working. Should have been simple enough to fix, but somehow after a reinstall and reboot I was stuck at a black screen with a blinking cursor and my keyboard not working so I was unable to enter a tty. In case you find yourself in a problem like this, try the following which worked for me.
-<br />
+
 Reboot your machine and when grub pops up (hold shift) to boot into recovery mode. Select to open a root terminal when the recovery mode loads and do the following
 
 Remove lightdm window manager and the current nvidia drivers
+
 {% highlight bash %}
 apt-get remove --purge lightdm nvidia-current
 {% endhighlight %}
 
- Keep in mind, that if you installed the nvidia drivers directly from their website, you need to download the same run file again and run it with --uninstall
+Keep in mind, that if you installed the nvidia drivers directly from their website, you need to download the same run file again and run it with --uninstall
 
 {% highlight bash %}
 ./NVIDIA_DRIVERS_YOU_INSTALLED --uninstall
 {% endhighlight %}
 
 After that, simply install lightdm and nvidia-current again
+
 {% highlight bash %}
 apt-get install lightdm nvidia-current
 {% endhighlight %}
 
 And then run
+
 {% highlight bash %}
 service lightdm start
 {% endhighlight %}
