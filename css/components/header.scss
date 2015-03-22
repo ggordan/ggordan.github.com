@@ -1,0 +1,27 @@
+.header {
+	margin: 0;
+	font-family: "acta-display";
+	font-size: 25px;
+	font-weight: 100;
+	padding: 3vh 0;
+
+	.name {
+		text-align: center;
+		margin: 0;
+		padding: 0;
+		a {
+			font-weight: 100;
+			color: #ccc;
+			font-family: "proxima-nova-alt";
+			text-decoration: none;
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		font-size: 50px;
+		.name {
+			text-align: left;
+		}
+	}
+
+}

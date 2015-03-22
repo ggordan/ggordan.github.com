@@ -1,0 +1,50 @@
+.writing {
+
+	font-family: "acta-display";
+	font-size: 14px;
+
+	h1, h5 {
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+
+	p, ul, li {
+		line-height: 1.8em;
+		font-size: 1em;
+	}
+
+	.date {
+		display: block;
+		font-size: 0.5em;
+		color: #ccc;
+	}
+
+	ul {
+		margin: 20px 10px;
+		padding-left: 10px;
+		list-style-type: disc;
+		li {
+			margin-bottom: 10px;
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		font-size: 18px;
+	}
+
+	.tldr {
+		background: #333;
+		color: #fff;
+		position: relative;
+		padding: 20px 20px 10px 20px;
+		&::before {
+			content: "TL;DR";
+			display: block;
+			color: #777;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+	}
+
+}

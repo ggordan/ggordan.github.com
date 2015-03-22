@@ -2,79 +2,40 @@
 ---
 
 @import "normalize";
-@import "highlight";
-@import "react-grid";
-
-@import "components/header";
 
 html, body {
 	background: #fff;
 	color: #333;
 	font-size: 14px;
-	font-family: "proxima-nova-alt";
-	max-width: 1280px;
+	font-family: "proxima-nova-alt", sans-serif;
+	max-width: 1680px;
 	margin: 0 auto;
-	padding: 4vh 4vw;
+	padding: 0 4vw;
 }
 
-.post-header {
-	font-size: 3em;
-}
+@import "highlight";
+@import "react-grid";
+@import "components/header";
+@import "components/writing";
+@import "components/header";
+@import "components/writing";
 
 a {
-	color: #000;
-}
-
-.center {
-	text-align: center;
-}
-
-h3 {
-	font-size: 3em;
-
-}
-
-p, li {
-	font-weight: 100;
-	font-size: 1.5em;
-	line-height: 2em;
-}
-
-.tldr {
-	background: #333;
-	color: #fff;
-	padding: 15px;
-}
-
-ul {
-	padding-left: 25px;
-	li {
-		h5 {
-			margin: 0;
-			font-family: "acta-display";
-			font-size: 2em;
-			a {
-				color: #333;
-				font-weight: 100;
-				text-decoration: none;
-				&:hover {
-					text-decoration: underline;
-				}
-			}
-			span {
-				font-size: 0.6em;
-				font-weight: 100;
-				color: #aaa;
-			}
-		}
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	&:hover {
+		text-decoration: underline;
 	}
 }
 
-.writing {
-	padding-top: 50px;
-}
-.writing ul {
-	padding: 0;
+ul {
 	list-style-type: none;
-	list-style-position: none;
+	list-style-position: inside;
+	padding: 0;
+	margin: 0;
+}
+
+.post p:last-child {
+	margin-bottom: 0;
 }
